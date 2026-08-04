@@ -1,0 +1,121 @@
+@import "tailwindcss";
+
+:root {
+  --background: #FAFAFA;
+  --foreground: #1c2721;
+  --primary: #04B867;
+  --primary-hover: #03a35b;
+  --card-bg: #ffffff;
+  --card-border: #e8ece9;
+  --muted: #627267;
+  --muted-bg: #f0f4f2;
+}
+
+@theme {
+  --color-primary: var(--primary);
+  --color-primary-hover: var(--primary-hover);
+  --color-card-bg: var(--card-bg);
+  --color-card-border: var(--card-border);
+  --color-muted: var(--muted);
+  --color-muted-bg: var(--muted-bg);
+  --font-sans: var(--font-poppins), Arial, sans-serif;
+  --font-heading: var(--font-poppins), Arial, sans-serif;
+  --animate-marquee: marquee 30s linear infinite;
+  
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+}
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
+}
+
+/* Base resets & typography */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .heading-font {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+/* Clean white card with soft shadow */
+.glass-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  box-shadow: 0 4px 20px -2px rgba(28, 39, 33, 0.04);
+}
+
+/* Friendly SaaS hover lift */
+.green-glow-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.green-glow-hover:hover {
+  box-shadow: 0 10px 30px -5px rgba(4, 184, 103, 0.08);
+  border-color: rgba(4, 184, 103, 0.25);
+  transform: translateY(-2px);
+}
+
+/* Hide scrollbars */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Organic dividers */
+.organic-divider {
+  position: relative;
+  width: 100%;
+  line-height: 0;
+  z-index: 1;
+}
+
+.organic-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 50px;
+}
+
+.nav-pill-transition {
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Sitewide Text Selection Highlight */
+::selection {
+  background-color: #04B867;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background-color: #04B867;
+  color: #ffffff;
+}

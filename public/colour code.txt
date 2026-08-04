@@ -1,0 +1,2 @@
+Primary colour: #04b867
+Secondary colour : ffffff
