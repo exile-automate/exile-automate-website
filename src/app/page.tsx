@@ -89,7 +89,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="relative w-full overflow-hidden bg-background">
+    <div className="relative w-full overflow-x-clip bg-background">
       
       {/* 1. Full-Bleed Green Hero Section */}
       <section 
@@ -237,9 +237,9 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Organic Wave Divider Transition Down (From White marquee down to Green Services section) */}
+      {/* Organic Wave Divider Transition Down (From White marquee down to Off-white Services section) */}
       <div className="organic-divider bg-white">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="fill-primary">
+        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="fill-[#f5f5f0]">
           <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
         </svg>
       </div>
@@ -247,10 +247,14 @@ export default function Home() {
       {/* 3. Scroll-Driven Stacked Cards Services Section */}
       <StackedServices />
 
-      {/* Organic Wave Divider Transition Up (From Green services up to White benefits section) */}
-      <div className="organic-divider bg-white">
-        <svg viewBox="0 0 1200 120" preserveAspectRatio="none" className="fill-primary rotate-180">
-          <path d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"></path>
+      {/* Organic Wave Divider Transition Up (From Off-white services up to White benefits section) */}
+      <div className="w-full overflow-hidden leading-none bg-[#f5f5f0]">
+        <svg
+          viewBox="0 0 1200 120"
+          preserveAspectRatio="none"
+          className="relative block w-full h-12 text-white fill-current"
+        >
+          <path d="M0,60 C300,120 900,0 1200,60 L1200,120 L0,120 Z"></path>
         </svg>
       </div>
 
