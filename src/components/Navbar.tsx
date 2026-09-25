@@ -61,7 +61,7 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group shrink-0">
           <Image
-            src="/exile logo green no gradient.png"
+            src="/images/exile-logo-green.png"
             alt="Exile Automate Logo"
             width={160}
             height={36}

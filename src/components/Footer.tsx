@@ -75,7 +75,7 @@ export default function Footer() {
           {/* Brand and Description */}
           <div className="space-y-6">
             <Image
-              src="/exile logo white.png"
+              src="/images/exile-logo-white.png"
               alt="Exile Automate Logo"
               width={160}
               height={36}
@@ -197,7 +197,7 @@ export default function Footer() {
       <div className="w-full bg-[#0a1f14] select-none pointer-events-none flex flex-col items-center justify-center py-20 px-6 sm:px-8 mt-0">
         <div className="w-full max-w-[75vw] flex justify-center">
           <Image
-            src="/exile logo white.png"
+            src="/images/exile-logo-white.png"
             alt="Exile Automate Giant Wordmark"
             width={1600}
             height={400}

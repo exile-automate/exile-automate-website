@@ -35,7 +35,7 @@ export default function PixelLogoCanvas() {
 
     const img = new window.Image();
     img.crossOrigin = "anonymous";
-    img.src = "/xi-logo-green.png";
+    img.src = "/images/xi-logo-green.png";
 
     img.onload = () => {
       // Center and scale image to fill most of the offscreen canvas
