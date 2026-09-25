@@ -125,7 +125,7 @@ export default function StackedServices() {
       style={{
         position: "relative",
         height: `${TOTAL_SECTION_VH}vh`,
-        background: "#f5f5f0",
+        background: "transparent",
       }}
     >
       {/* Sticky container — locks in viewport while scrolling through the section */}

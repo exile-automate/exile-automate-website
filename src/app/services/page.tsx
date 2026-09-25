@@ -15,7 +15,7 @@ import { SERVICES } from "@/utils/mockData";
 
 export default function ServicesPage() {
   return (
-    <div className="relative w-full overflow-hidden bg-background">
+    <div className="relative w-full overflow-hidden bg-transparent">
       
       {/* 1. Page Header (Green background) */}
       <section className="bg-primary text-white py-16 sm:py-24 text-center">
@@ -43,7 +43,7 @@ export default function ServicesPage() {
               key={service.id}
               id={service.id}
               className={`w-full py-16 lg:py-24 scroll-mt-20 ${
-                isEven ? "bg-white text-foreground" : "bg-primary text-white"
+                isEven ? "bg-transparent text-foreground" : "bg-primary text-white"
               }`}
             >
               <div className="mx-auto max-w-7xl px-6 sm:px-8">

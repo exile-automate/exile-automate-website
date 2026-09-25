@@ -68,7 +68,7 @@ export default function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#0a1f14] text-white border-t border-white/10">
+    <footer className="relative z-10 w-full bg-[#0a1f14] text-white border-t border-white/10">
       <div className="mx-auto max-w-7xl px-6 pt-12 pb-6 sm:px-8 lg:pt-16">
         <div className="xl:grid xl:grid-cols-3 xl:gap-8">
           

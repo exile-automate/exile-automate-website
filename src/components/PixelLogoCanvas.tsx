@@ -192,14 +192,14 @@ export default function PixelLogoCanvas() {
       ref={containerRef}
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
-      className={`relative flex items-center justify-center rounded-2xl bg-white overflow-hidden group ${
+      className={`relative flex items-center justify-center rounded-2xl bg-white overflow-hidden group border border-[rgba(10,31,20,0.08)] ${
         !isHovered ? "card-glow-pulse" : ""
       }`}
       style={{
         width: 480,
         height: 480,
         transform: "perspective(1000px) rotateX(var(--rotate-x, 0deg)) rotateY(var(--rotate-y, 0deg)) scale3d(var(--scale, 1), var(--scale, 1), var(--scale, 1))",
-        boxShadow: "var(--box-shadow, 0 10px 35px -5px rgba(0,0,0,0.05), 0 0 30px rgba(4, 184, 103, 0.1))",
+        boxShadow: "var(--box-shadow, 0 10px 35px -5px rgba(10,31,20,0.04), 0 0 30px rgba(4, 184, 103, 0.08))",
         transition: "transform 0.3s ease-out, box-shadow 0.3s ease-out",
       }}
     >

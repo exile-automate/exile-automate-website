@@ -38,7 +38,33 @@ export interface DaySlots {
   slots: BookingSlot[];
 }
 
-export const TRUSTED_CLIENTS: Client[] = [];
+export const TRUSTED_CLIENTS: Client[] = [
+  {
+    name: "Heaven Nights DMC",
+    logoText: "Heaven Nights DMC",
+    logoPath: "/clients/heaven-nights-dmc.png"
+  },
+  {
+    name: "VKC Pride",
+    logoText: "VKC Pride",
+    logoPath: "/clients/vkc-pride.png"
+  },
+  {
+    name: "Smarty Beans",
+    logoText: "Smarty Beans",
+    logoPath: "/clients/smarty-beans.png"
+  },
+  {
+    name: "Rail Rolls",
+    logoText: "Rail Rolls",
+    logoPath: "/clients/rail-rolls.png"
+  },
+  {
+    name: "WISE",
+    logoText: "WISE",
+    logoPath: "/clients/wise.png"
+  }
+];
 
 export const CORE_VALUES: CoreValue[] = [
   {

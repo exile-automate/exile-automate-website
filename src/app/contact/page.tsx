@@ -11,8 +11,7 @@ import {
   CheckCircle2,
   Sparkles,
   ArrowRight,
-  Info,
-  QrCode
+  Info
 } from "lucide-react";
 import FormInput from "@/components/ui/FormInput";
 
@@ -324,40 +323,34 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* QR Code Placeholder Box */}
-              <div className="border-t border-card-border pt-6 flex flex-col sm:flex-row items-center gap-5 justify-between">
-                <div className="flex flex-col gap-2 text-center sm:text-left">
-                  <span className="text-[10px] font-bold text-muted uppercase tracking-wider font-heading">Scan Social Channels</span>
-                  <p className="text-[11px] text-muted/80 max-w-[200px] leading-relaxed font-sans">
-                    Scan or click the link icons to visit our official channels directly.
+              {/* Social Channels Section */}
+              <div className="border-t border-card-border pt-6 flex flex-col gap-3">
+                <div className="flex flex-col gap-1">
+                  <span className="text-[10px] font-bold text-muted uppercase tracking-wider font-heading">Connect On Social Channels</span>
+                  <p className="text-xs text-muted leading-relaxed font-sans">
+                    Connect with us directly on our official social media platforms.
                   </p>
-                  
-                  {/* Social list links */}
-                  <div className="flex gap-2.5 mt-1 justify-center sm:justify-start">
-                    {socialLinks.map((social) => {
-                      const Icon = social.icon;
-                      return (
-                        <a
-                          key={social.name}
-                          href={social.href}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="rounded-full p-1.5 border border-card-border hover:bg-primary/10 hover:text-primary transition-colors text-muted cursor-pointer"
-                          title={social.name}
-                        >
-                          <Icon className="h-3.5 w-3.5" />
-                        </a>
-                      );
-                    })}
-                  </div>
                 </div>
-
-                {/* SVG styled QR Code placeholder */}
-                <div className="h-20 w-20 bg-slate-50 p-2 rounded-2xl border border-card-border flex items-center justify-center text-primary shrink-0 relative group cursor-pointer shadow-inner">
-                  <QrCode className="h-full w-full opacity-85 group-hover:opacity-100 group-hover:scale-[1.03] transition-all" />
-                  <div className="absolute inset-0 m-auto h-5 w-5 bg-white rounded border border-card-border flex items-center justify-center text-[7px] font-black text-primary font-heading select-none pointer-events-none">
-                    EX
-                  </div>
+                
+                {/* Social list links */}
+                <div className="flex flex-wrap gap-3 mt-1">
+                  {socialLinks.map((social) => {
+                    const Icon = social.icon;
+                    return (
+                      <a
+                        key={social.name}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="rounded-full px-4 py-2 border border-card-border hover:bg-primary/10 hover:text-primary hover:border-primary/30 transition-all text-muted cursor-pointer flex items-center gap-2 shadow-xs"
+                        title={social.name}
+                        aria-label={`Exile Automate on ${social.name}`}
+                      >
+                        <Icon className="h-4 w-4 text-primary" />
+                        <span className="text-xs font-bold font-heading text-foreground">{social.name}</span>
+                      </a>
+                    );
+                  })}
                 </div>
               </div>
 
