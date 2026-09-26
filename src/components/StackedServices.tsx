@@ -65,12 +65,12 @@ const SERVICES_DATA = [
   {
     id: "custom-bot-agent-development",
     serviceNum: "SERVICE 05",
-    title: "Custom Bot & Agent Development",
+    title: "Custom Agent Development",
     description:
-      "AI tools tailored to your unique workflows. Tailored software agents trained on your specific guides to resolve customer questions and execute actions.",
+      "Custom AI agents built around specific business functions to automate conversations, support customers, manage sales, and handle operational tasks.",
     bullets: [
-      "Context-aware agents trained on your guides",
-      "WhatsApp & web chat multi-channel support",
+      "Sales Agent • Customer Support Agent • Care Agent",
+      "Finance Agent • Ecom Ordering Agent",
     ],
     Icon: Bot,
   },

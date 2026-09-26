@@ -141,7 +141,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/services#custom-bot-agent-development" className="text-sm text-white/80 hover:text-slate-200 transition-colors font-sans">
-                      Custom Bot Agents
+                      Custom Agent Development
                     </Link>
                   </li>
                 </ul>

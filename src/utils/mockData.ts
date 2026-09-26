@@ -176,7 +176,7 @@ export const SERVICES: Service[] = [
   },
   {
     id: "custom-bot-agent-development",
-    title: "Custom Bot & Agent Development",
+    title: "Custom Agent Development",
     shortDesc: "Tailored software agents trained on your specific guides to resolve customer questions and execute actions.",
     longDesc: "We build specialized virtual bots for web chats, WhatsApp, or internal portals. These agents answer FAQs, pull inventory details, and help users execute tasks based on your internal documentation.",
     iconName: "Bot",
