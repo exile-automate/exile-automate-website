@@ -50,7 +50,7 @@ const BENEFITS: Benefit[] = [
 ];
 
 const BENEFIT_COUNT = BENEFITS.length; // 6
-const SECTION_VH = 280; // 280vh generous scroll distance for 6 nodes
+const SECTION_VH = 320; // 320vh generous scroll distance for phased animation
 
 export default function WhyChooseStack() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -90,7 +90,7 @@ export default function WhyChooseStack() {
             if (isMobile) {
               // Mobile scroll progress relative to viewport center
               const totalH = rect.height;
-              const scrolled = window.innerHeight * 0.65 - rect.top;
+              const scrolled = window.innerHeight * 0.7 - rect.top;
               const p = Math.min(Math.max(scrolled / totalH, 0), 1);
               setProgress(p);
             } else {
@@ -138,12 +138,12 @@ export default function WhyChooseStack() {
         {/* Mobile Vertical Timeline */}
         <div className="relative max-w-lg mx-auto pl-10 pr-2">
           {/* Base Inactive Vertical Line */}
-          <div className="absolute left-[19px] top-4 bottom-4 w-0.5 bg-[#04B867]/20 rounded-full" />
+          <div className="absolute left-[19px] top-3 bottom-3 w-0.5 bg-[#04B867]/20 rounded-full" />
 
           {/* Active Growing Green Line */}
           <div
             style={{ height: `${mobileLineHeightPercent}%` }}
-            className="absolute left-[19px] top-4 w-0.5 bg-[#04B867] shadow-[0_0_10px_rgba(4,184,103,0.5)] rounded-full transition-all duration-75 ease-out"
+            className="absolute left-[19px] top-3 w-0.5 bg-[#04B867] shadow-[0_0_10px_rgba(4,184,103,0.5)] rounded-full transition-all duration-75 ease-out"
           />
 
           <div className="flex flex-col gap-12">
@@ -152,11 +152,11 @@ export default function WhyChooseStack() {
               const isPassed = progress >= targetP - 0.05;
 
               let itemOpacity = 0;
-              let itemTranslateY = 16;
+              let itemTranslateY = 15;
               if (progress >= targetP - 0.1) {
                 const t = Math.min((progress - (targetP - 0.1)) / 0.1, 1);
                 itemOpacity = t;
-                itemTranslateY = (1 - t) * 16;
+                itemTranslateY = (1 - t) * 15;
               }
 
               return (
@@ -187,9 +187,14 @@ export default function WhyChooseStack() {
                     }}
                     className="flex flex-col gap-1 text-left"
                   >
-                    <span className="text-[11px] font-bold uppercase tracking-widest text-[#04B867] font-mono">
-                      BENEFIT {item.number}
-                    </span>
+                    <div className="flex items-center gap-2">
+                      <span className="text-[11px] font-bold uppercase tracking-widest text-[#04B867] font-mono">
+                        {item.number}
+                      </span>
+                      {isPassed && (
+                        <span className="text-xs text-[#04B867] font-bold">✓</span>
+                      )}
+                    </div>
                     <h3 className="text-lg font-extrabold text-[#0a1f14] font-heading leading-snug">
                       {item.title}
                     </h3>
@@ -210,12 +215,13 @@ export default function WhyChooseStack() {
   }
 
   /* ---- Desktop Vertical Timeline View (≥ 768px) ---- */
-  const nodeGapPx = 180; // Vertical spacing between nodes
-  const totalTrackHeight = (BENEFIT_COUNT - 1) * nodeGapPx; // 900px total length
+  const nodeGapPx = 190; // Vertical spacing between nodes
+  const totalTrackHeight = (BENEFIT_COUNT - 1) * nodeGapPx; // 950px total track length from Node 01 to Node 06
   const activeLineHeightPx = progress * totalTrackHeight;
 
-  // Track vertical translation so current active node stays near screen center
-  const maxTrackTranslateY = totalTrackHeight - 260;
+  // Align-top layout: Node 01 sits at top (y = 0px).
+  // Translate track up as progress increases so the active node tip stays near the viewport center.
+  const maxTrackTranslateY = totalTrackHeight - 280;
   const trackTranslateY = progress * maxTrackTranslateY;
 
   return (
@@ -234,7 +240,7 @@ export default function WhyChooseStack() {
           top: 0,
           height: "100vh",
         }}
-        className="flex flex-col justify-between py-10 overflow-hidden"
+        className="flex flex-col justify-between py-8 px-6 overflow-hidden"
       >
         {/* Fixed Top Section Header */}
         <div className="text-center max-w-3xl mx-auto px-6 flex flex-col items-center gap-2 shrink-0 z-20">
@@ -248,8 +254,8 @@ export default function WhyChooseStack() {
           </h2>
         </div>
 
-        {/* Central Timeline Animation Stage */}
-        <div className="relative w-full flex-1 max-w-5xl mx-auto overflow-hidden my-4 flex items-center justify-center">
+        {/* Central Timeline Animation Stage — items-start (top aligned) */}
+        <div className="relative w-full flex-1 max-w-5xl mx-auto overflow-hidden my-2 flex items-start justify-center pt-8">
           <div
             style={{
               transform: `translate3d(0, ${-trackTranslateY}px, 0)`,
@@ -272,12 +278,12 @@ export default function WhyChooseStack() {
             {/* Nodes and Alternating Content Items */}
             <div className="relative w-full flex flex-col items-center" style={{ gap: `${nodeGapPx - 32}px` }}>
               {BENEFITS.map((item, i) => {
-                const targetP = i / (BENEFIT_COUNT - 1);
+                const targetP = i / (BENEFIT_COUNT - 1); // 0.0, 0.2, 0.4, 0.6, 0.8, 1.0
                 const isPassed = progress >= targetP - 0.03;
                 const isRightSide = i % 2 === 0; // 01 right, 02 left, 03 right, 04 left, 05 right, 06 left
 
                 let opacity = 0;
-                let translateY = 20;
+                let translateY = 15;
 
                 const startReveal = Math.max(targetP - 0.12, 0);
                 const endReveal = targetP;
@@ -289,7 +295,7 @@ export default function WhyChooseStack() {
                   } else {
                     const t = (progress - startReveal) / (endReveal - startReveal);
                     opacity = t;
-                    translateY = (1 - t) * 20;
+                    translateY = (1 - t) * 15;
                   }
                 }
 
@@ -313,7 +319,7 @@ export default function WhyChooseStack() {
                       )}
                     </div>
 
-                    {/* Alternating Content Box */}
+                    {/* Content Box */}
                     <div
                       style={{
                         opacity,
@@ -327,10 +333,15 @@ export default function WhyChooseStack() {
                           : "right-[54%] text-right items-end pl-6"
                       }`}
                     >
-                      <span className="text-xs font-bold uppercase tracking-widest text-[#04B867] font-mono mb-1">
-                        BENEFIT {item.number}
-                      </span>
-                      <h3 className="text-xl lg:text-2xl font-extrabold text-[#0a1f14] font-heading leading-snug mb-2">
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-xs font-bold uppercase tracking-widest text-[#04B867] font-mono">
+                          {item.number}
+                        </span>
+                        {isPassed && (
+                          <span className="text-xs text-[#04B867] font-bold">✓</span>
+                        )}
+                      </div>
+                      <h3 className="text-xl lg:text-2xl font-extrabold text-[#0a1f14] font-heading leading-snug mb-1.5">
                         {item.title}
                       </h3>
                       <p className="text-sm lg:text-base text-[#0a1f14]/75 leading-relaxed font-sans max-w-sm">
@@ -353,7 +364,7 @@ export default function WhyChooseStack() {
 
 function CTABlock() {
   return (
-    <div className="mt-4 flex flex-col items-center gap-1.5 shrink-0 z-20">
+    <div className="mt-2 flex flex-col items-center gap-1.5 shrink-0 z-20">
       <Link
         href="/booking"
         className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-[#04B867] px-8 text-sm font-bold text-white shadow-md shadow-[#04B867]/25 hover:bg-[#039e58] hover:scale-[1.02] active:scale-[0.98] transition-all font-heading"
